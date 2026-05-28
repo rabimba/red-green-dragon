@@ -1,3 +1,1 @@
 # Git LFS is not required for this repo when models/ is gitignored.
-# If you add large binary assets under assets/, consider:
-# *.png filter=lfs diff=lfs merge=lfs -text

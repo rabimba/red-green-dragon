@@ -46,7 +46,6 @@ Optional host paths for large local trees are documented as commented volumes in
 | `webapp/` | FastAPI UI for uploading `.cu` files and downloading HIP results |
 | `models/` | Local weight directory (gitignored checkpoints) |
 | `Dockerfile`, `docker-compose.yml` | Development environment |
-| `assets/` | Project images (not required to run scripts) |
 
 ## `stackv2_scripts/` pipeline
 

@@ -35,3 +35,17 @@ secrets.json
 # Large local datasets (use docker-compose mounts, not the repo)
 /data/
 local-datasets/
+
+# Binary images (not stored in this repo)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.ico
+*.bmp
+*.tiff
+*.tif
+*.avif
+*.heic
