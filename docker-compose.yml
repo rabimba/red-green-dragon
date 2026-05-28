@@ -1,0 +1,34 @@
+services:
+  transpiler:
+    image: transpiler
+    container_name: transpiler_container
+    stdin_open: true
+    tty: true
+    restart: "no"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    security_opt:
+      - seccomp:unconfined
+    group_add:
+      - "video"
+    cap_add:
+      - SYS_PTRACE
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+      # Optional: uncomment and set host paths for large local datasets
+      # - ${DATASETS_HOST}:/datasets:ro
+      # - ${BENCH_HOST}:/bench:ro
+      # - ${LOCAL_DATASETS_HOST}:/root/local-datasets:ro
+      # - ${HF_DATASETS_CACHE}:/root/.cache/huggingface/datasets:ro
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    # Interactive: docker compose run --rm transpiler
+    # Commands:    docker compose run --rm transpiler -c 'nvcc --version'  (do not add an extra "bash")
+    entrypoint: ["/usr/bin/bash"]

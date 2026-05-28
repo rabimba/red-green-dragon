@@ -1,0 +1,37 @@
+# Model weights — download locally (see models/README.md)
+models/*
+!models/README.md
+*.safetensors
+*.safetensors.index.json
+*.bin
+*.pt
+*.pth
+*.ckpt
+training_args.bin
+
+# HuggingFace download cache (often under model dirs)
+**/.cache/
+
+# Runtime logs and Python artifacts
+webapp/server.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local editor / agent settings
+.claude/
+.vscode/
+.idea/
+
+# Secrets and env files
+.env
+.env.*
+*.pem
+credentials.json
+secrets.json
+
+# Large local datasets (use docker-compose mounts, not the repo)
+/data/
+local-datasets/
